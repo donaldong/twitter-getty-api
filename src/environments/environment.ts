@@ -4,5 +4,9 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  twitter_api_key: 'rulMkLF5NbaESXJj7jUu9LIEY',
+  twitter_api_secret: '5DfiPwzJxQFXrojYnRhWDI9678pYJQtV8N4LWjqcKOEGWBir3s',
+  twitter_access_token: '929790392295309312-bmN3EncaPpGzVTwFdE2AWdReMbB0tbj',
+  twitter_token_secret: 'j6KiYhnHMiZVbM3SdVMwzl5AHJtwzTm6PCBNzJ05dgInK'
 };
