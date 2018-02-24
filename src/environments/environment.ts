@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  twitter_api_key: 'rulMkLF5NbaESXJj7jUu9LIEY',
+  twitter_api_key: 'rulMkLF5NbaESXJj7jUu9LIKs',
   twitter_api_secret: '5DfiPwzJxQFXrojYnRhWDI9678pYJQtV8N4LWjqcKOEGWBir3s',
   twitter_access_token: '929790392295309312-bmN3EncaPpGzVTwFdE2AWdReMbB0tbj',
   twitter_token_secret: 'j6KiYhnHMiZVbM3SdVMwzl5AHJtwzTm6PCBNzJ05dgInK'
