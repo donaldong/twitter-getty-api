@@ -1,36 +1,42 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { OAuth } from 'oauth';
 import { environment } from '../../environments/environment';
+import { HttpHeaders } from '@angular/common/http';
+
 
 @Injectable()
 export class TwitterService {
-  oauth: OAuth;
 
   constructor(private http: HttpClient) {
-    this.oauth = new OAuth(
-      'https://api.twitter.com/oauth/request_token',
-      'https://api.twitter.com/oauth/access_token',
-      environment.twitter_api_key,
-      environment.twitter_api_secret,
-      '1.0A',
-      null,
-      'HMAC-SHA1'
-    );
+  }
 
+  static getHttpHeaders() {
+    return new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': this.getAuthorizationHeader(),
+      'Host': 'api.twitter.com'
+    });
+  }
+
+  static getAuthorizationHeader() {
+    return 'OAuth oauth_consumer_key="' + this.getPercentEncoding(environment.twitter_api_key) + '",' +
+      'oauth_nonce="' + this.getPercentEncoding(environment.twitter_api_secret) + '",' +
+      'oauth_signature="tnnArxj06cWHq44gCs1OSKk%2FjLY%3D",' +
+      'oauth_signature_method="HMAC-SHA1",' +
+      'oauth_timestamp="1318622958",' +
+      'oauth_token="370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb",' +
+      'oauth_version="1.0"';
+  }
+
+  static getPercentEncoding(parameter: string) {
+    return parameter;
   }
 
   test() {
-    this.oauth.get(
-      'https://api.twitter.com/1.1/search/tweets.json?q=' + 'apple' + '&count=10',
-      environment.twitter_access_token,
-      environment.twitter_token_secret,
-      function(e, data, res) {
-        console.log('twitter api call complete');
-        if (e) { console.log(e); }
-        data = JSON.parse(data);
-        console.log(data);
-      });
+    const httpOptions = {
+      headers: TwitterService.getHttpHeaders()
+    };
+    console.log(httpOptions);
   }
 
 }
