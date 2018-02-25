@@ -8,5 +8,7 @@ export const environment = {
   twitter_api_key: 'rulMkLF5NbaESXJj7jUu9LIKs',
   twitter_api_secret: '5DfiPwzJxQFXrojYnRhWDI9678pYJQtV8N4LWjqcKOEGWBir3s',
   twitter_access_token: '929790392295309312-bmN3EncaPpGzVTwFdE2AWdReMbB0tbj',
-  twitter_token_secret: 'j6KiYhnHMiZVbM3SdVMwzl5AHJtwzTm6PCBNzJ05dgInK'
+  twitter_token_secret: 'j6KiYhnHMiZVbM3SdVMwzl5AHJtwzTm6PCBNzJ05dgInK',
+  getty_images_key: 'vvsdt3xrw9datmp22r58gb4z',
+  getty_images_secret: 'PFkqBPXz96BAb5MHKXBzZsFEDJD4NPrFXK4zzVuYN74a2'
 };
