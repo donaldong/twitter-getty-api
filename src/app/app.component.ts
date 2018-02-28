@@ -9,6 +9,7 @@ import { GettyImagesService } from './services/getty-images.service';
   providers: [ TwitterService, GettyImagesService ]
 })
 
+// TODO: Add random tweets from Twitter API
 export class AppComponent {
   image: Image;
 
@@ -17,6 +18,7 @@ export class AppComponent {
     gettyImages.search('city').subscribe(() => {
       const index = AppComponent.rand_int(gettyImages.images.length);
       this.image = new Image(gettyImages.images[index]);
+      console.log(gettyImages.images);
     });
   }
 

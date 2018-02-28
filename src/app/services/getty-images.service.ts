@@ -8,6 +8,8 @@ import 'rxjs/add/operator/map';
 export class GettyImagesService {
   public images: Array<Object>;
   private headers: HttpHeaders;
+  private requestURL = 'https://api.gettyimages.com/v3/search/images?' +
+    'embed_content_only=true&fields=comp&graphical_styles=photography&minimum_size=xx_large&sort_order=most_popular';
 
   constructor(private http: HttpClient) {
     this.headers = new HttpHeaders({
@@ -23,14 +25,14 @@ export class GettyImagesService {
 
   public search(phrase: string = null) {
     if (phrase === null) {
-      return this.map(this.http.get('https://api.gettyimages.com/v3/search/' +
-        'images?fields=id,title,thumb,referral_destinations&sort_order=best', {
+      return this.map(this.http.get(this.requestURL,
+        {
+          headers: this.headers
+        }));
+    }
+    return this.map(this.http.get(this.requestURL + '&phrase=' + phrase,
+      {
         headers: this.headers
       }));
-    }
-    return this.map(this.http.get('https://api.gettyimages.com/v3/search/' +
-      'images?phrase=' + phrase, {
-      headers: this.headers
-    }));
   }
 }
