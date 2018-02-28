@@ -29,7 +29,7 @@ export class GettyImagesService {
       }));
     }
     return this.map(this.http.get('https://api.gettyimages.com/v3/search/' +
-      'images?fields=id,title,thumb,referral_destinations&sort_order=best&phrase=' + phrase, {
+      'images?phrase=' + phrase, {
       headers: this.headers
     }));
   }
