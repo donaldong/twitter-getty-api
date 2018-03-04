@@ -32,6 +32,7 @@
 /libpeerconnection.log
 npm-debug.log
 testem.log
+test.log
 /typings
 
 # e2e
@@ -41,3 +42,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+credentials.js

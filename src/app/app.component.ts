@@ -18,8 +18,8 @@ export class AppComponent {
     gettyImages.search('city').subscribe(() => {
       const index = AppComponent.rand_int(gettyImages.images.length);
       this.image = new Image(gettyImages.images[index]);
-      console.log(gettyImages.images);
     });
+    twitter.test();
   }
 
   static rand_int(n: number): number {
