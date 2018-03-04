@@ -1,6 +1,6 @@
-exports.twitter_api_key = 'YKfKtFszNdxDTKxPBDyvmEEWs';
-exports.twitter_api_secret = 'OiMyJ4fxDgQV7iSaj1EYw6pb3gKRyrX5PbdPGPvBhiqgGUBzom';
-exports.twitter_access_token = '929790392295309312-bmN3EncaPpGzVTwFdE2AWdReMbB0tbj';
-exports.twitter_token_secret = 'j6KiYhnHMiZVbM3SdVMwzl5AHJtwzTm6PCBNzJ05dgInK';
-exports.getty_images_key = 'q2qumxtqzxjqd7msbx6x6jgb';
-exports.getty_images_secret = 'yY4fhemdtbVs9zG9DspZJewpD2BnD9VnX82QnrXqwn5xw';
+exports.twitter_api_key = process.env.twitter_api_key;
+exports.twitter_api_secret = process.env.twitter_api_secret;
+exports.twitter_access_token =  process.env.twitter_access_token;
+exports.twitter_token_secret = process.env.twitter_token_secret;
+exports.getty_images_key = process.env.getty_images_key;
+exports.getty_images_secret = process.env.getty_images_secret;
