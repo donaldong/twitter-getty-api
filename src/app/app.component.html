@@ -1,7 +1,21 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center" class="container">
-  <div *ngIf="image !== null">
-    <img src="{{ image.url }}" alt="{{ image.title }}">
+  <div *ngIf="tweet === null || image === null" class="loader"></div>
+  <div *ngIf="tweet !== null && image !== null">
+    <div class="about">
+      <p> Donald Dong </p>
+      <p> CST438 Homework 2 </p>
+    </div>
+    <div class="tweet-bg">
+      <div class="tweet">
+        <p>{{ tweet.text }}</p>
+      </div>
+    </div>
+    <div class="image">
+      <img src="{{ image.url }}" alt="{{ image.title }}">
+    </div>
+    <a class="button" href="https://twitter.com/Inspire_Us?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
+        <div class="block"> Keep Motivated </div>
+        <div class="block"><img src="../assets/Twitter_Logo_WhiteOnImage.png"></div>
+    </a>
   </div>
 </div>
-

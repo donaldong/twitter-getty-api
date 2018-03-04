@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { TwitterService } from './services/twitter.service';
 import { GettyImagesService } from './services/getty-images.service';
 
@@ -9,21 +9,30 @@ import { GettyImagesService } from './services/getty-images.service';
   providers: [ TwitterService, GettyImagesService ]
 })
 
-// TODO: Add random tweets from Twitter API
-export class AppComponent {
+export class AppComponent implements OnInit {
   image: Image;
+  tweet: Tweet;
 
-  constructor(twitter: TwitterService, gettyImages: GettyImagesService) {
-    this.image = null;
-    gettyImages.search('city').subscribe(() => {
-      const index = AppComponent.rand_int(gettyImages.images.length);
-      this.image = new Image(gettyImages.images[index]);
-    });
-    twitter.test();
+  constructor(private twitter: TwitterService,
+              private gettyImages: GettyImagesService) {
   }
 
   static rand_int(n: number): number {
     return Math.floor(Math.random() * n);
+  }
+
+  ngOnInit() {
+    this.image = null;
+    this.tweet = null;
+    this.gettyImages.search('motivation').subscribe(() => {
+      const index = AppComponent.rand_int(this.gettyImages.images.length);
+      this.image = new Image(this.gettyImages.images[index]);
+    });
+    this.twitter.user_timeline('Inspire_Us').subscribe(object => {
+      const index = AppComponent.rand_int(object.length);
+      this.tweet = new Tweet(object[index]);
+      console.log(this.tweet);
+    });
   }
 }
 
@@ -34,5 +43,15 @@ class Image {
   constructor(object: Object) {
     this.url = object['display_sizes'][0]['uri'];
     this.title = object['title'];
+  }
+}
+
+class Tweet {
+  time: string;
+  text: string;
+
+  constructor(object: Object) {
+    this.text = object['text'];
+    this.time = object['created_at'];
   }
 }

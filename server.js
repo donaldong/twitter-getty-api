@@ -20,7 +20,7 @@ app.use(express.static(__dirname + '/dist'));
 app.listen(process.env.PORT || 8080);
 
 
-app.post('/twitter', upload.array(), function(req, res, next) {
+app.post('/twitter/user_timeline', upload.array(), function(req, res, next) {
   twitter.get(
     'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' + encodeURIComponent(req.body) + "&count=30",
     credentials.twitter_access_token,
