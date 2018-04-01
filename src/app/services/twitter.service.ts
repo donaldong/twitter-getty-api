@@ -7,6 +7,6 @@ export class TwitterService {
   constructor(private http: HttpClient) { }
 
   user_timeline(screenName: string): Observable<any> {
-    return this.http.post('/twitter/user_timeline', screenName);
+    return this.http.get('https://fast-badlands-94575.herokuapp.com/user_timeline?screen_name=' + screenName);
   }
 }

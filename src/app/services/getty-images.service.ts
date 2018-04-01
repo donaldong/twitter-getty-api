@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class GettyImagesService {
   public images: Array<Object>;
-  private requestURL = '/getty_images/search';
+  private requestURL = 'https://fast-badlands-94575.herokuapp.com/getty_images/search';
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +17,6 @@ export class GettyImagesService {
   }
 
   public search(phrase: string = null) {
-    return this.map(this.http.post(this.requestURL, phrase));
+    return this.map(this.http.get(this.requestURL + '?phrase=' + phrase));
   }
 }
